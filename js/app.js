@@ -14,6 +14,9 @@ function validarFormulario(e) {
     imprimirAlerta("Agrega un termino de busqueda");
     return;
   }
+
+  //Consultar la API
+  buscarImagen(terminoBusqueda);
 }
 
 function imprimirAlerta(mensaje) {
@@ -41,4 +44,17 @@ function imprimirAlerta(mensaje) {
       alerta.remove();
     }, 3000);
   }
+}
+
+function buscarImagen(busqueda) {
+  const key = "8502071-1f57c63cc805c2d86e5bf513a";
+  const url = `https://pixabay.com/api/?key=${key}&q=${busqueda}`;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((res) => mostrarImagenes(res));
+}
+
+function mostrarImagenes(datos) {
+  console.log(datos);
 }
