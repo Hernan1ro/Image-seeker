@@ -130,7 +130,7 @@ function imprimirPaginador() {
     );
     boton.onclick = () => {
       paginaActual = value;
-      mostrarImagenes();
+      buscarImagen();
     };
     paginacionDiv.appendChild(boton);
   }
